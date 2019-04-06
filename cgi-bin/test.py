@@ -1,8 +1,16 @@
 import os
+
+import cgi
+
+
+
 def intersection(lst1, lst2): 
     lst3 = [value for value in lst1 if value in lst2] 
     return lst3 
 def main():	
+	form = cgi.FieldStorage()
+	s1 =  form.getvalue('s1')
+	s2 = form.getvalue('s2')
 	x = {}
 	x["Better Now"] = ["Ashley", "Jennie", "Nicole", "Pyke", "Stefanie", "Harry"]
 	x["IDOL"] = ["Eugene", "Gabby", "Julia", "Vincent", "Silver", "Paige", "Sam"]
@@ -33,8 +41,8 @@ def main():
 	x["Bikini Body"] = ["Vincent", "Alicia", "Hannah", "Pyke", "Marin", "Eugene", "Harry", "Mona"]
 	x["Pose"] = ["Eisa", "Nia", "Pyke", "Ashley", "Hannah"]
 	x["Feeling"] = ["Stefanie", "Lauren", "Harry", "Vincent", "Grace", "Yuanna", "Gabby", "Kyle", "Marissa", "Serena"]
-	s1 = input("First Song: ")
-	s2 = input("Second Song: ")
+	# s1 = input("First Song: ")
+	# s2 = input("Second Song: ")
 	
 	print("Intersects: ", intersection(x[s1], x[s2]))
 
