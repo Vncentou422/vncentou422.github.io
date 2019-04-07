@@ -1,16 +1,30 @@
 import os
-
 import cgi
 
+def htmltop():
+	print("""Content-type:text/html\n\n
+			<!DOCTYPE html>
+			<html lang= "en">
+				<head>
+					<meta charset = "utf-8/>
+					<title> Test </title>
+				</head>
+				<body>""")
+def htmlbottom():
+	print("""</body> </html>""")
 
 
 def intersection(lst1, lst2): 
     lst3 = [value for value in lst1 if value in lst2] 
     return lst3 
+
 def main():	
+	htmltop()
 	form = cgi.FieldStorage()
-	s1 =  form.getvalue('s1')
-	s2 = form.getvalue('s2')
+	s1 =  request.form['s1']
+	s2 = request.form['s2']
+	# s1 = form.getvalue('s1')
+	# s2 = form.getvalue('s2')
 	x = {}
 	x["Better Now"] = ["Ashley", "Jennie", "Nicole", "Pyke", "Stefanie", "Harry"]
 	x["IDOL"] = ["Eugene", "Gabby", "Julia", "Vincent", "Silver", "Paige", "Sam"]
@@ -45,6 +59,7 @@ def main():
 	# s2 = input("Second Song: ")
 	
 	print("Intersects: ", intersection(x[s1], x[s2]))
-
+	htmlbottom()
+	
 if __name__ == "__main__":
 	main()
