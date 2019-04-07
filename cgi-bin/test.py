@@ -1,6 +1,7 @@
 import os
 import cgi
-
+import cgitb 
+cgitb.enable()
 def htmltop():
 	print("""Content-type:text/html\n\n
 			<!DOCTYPE html>
@@ -21,10 +22,10 @@ def intersection(lst1, lst2):
 def main():	
 	htmltop()
 	form = cgi.FieldStorage()
-	s1 =  request.form['s1']
-	s2 = request.form['s2']
-	# s1 = form.getvalue('s1')
-	# s2 = form.getvalue('s2')
+	# s1 =  request.form['s1']
+	# s2 = request.form['s2']
+	s1 = form.getvalue('s1')
+	s2 = form.getvalue('s2')
 	x = {}
 	x["Better Now"] = ["Ashley", "Jennie", "Nicole", "Pyke", "Stefanie", "Harry"]
 	x["IDOL"] = ["Eugene", "Gabby", "Julia", "Vincent", "Silver", "Paige", "Sam"]
